@@ -14,7 +14,7 @@ const getLocalTodos = () => {
 
 function TodoList() {
   const [todos, setValue] = useState(getLocalTodos());
-  console.log(getLocalTodos(), 'c1')
+  
   const addTodo = todo => {
     if (!todo.text || !todo.text.trim()) {
       return;
@@ -51,7 +51,7 @@ function TodoList() {
     });
     setValue(updatedTodos);
   };
-
+  console.log(getLocalTodos(), 'c1')
   return (
     <>
       <h1>What's the Plan for Today?</h1>

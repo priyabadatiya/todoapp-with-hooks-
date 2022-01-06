@@ -3,8 +3,8 @@ import TodoForm from './TodoForm';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
 
-const Todo = ({ updateTodo, todos, completeTodo, removeTodo }) => {
 
+const Todo = ({ updateTodo, todos, completeTodo, removeTodo }) => {
 
   const [edit, setEdit] = useState({
     id: null,
@@ -15,7 +15,8 @@ const Todo = ({ updateTodo, todos, completeTodo, removeTodo }) => {
     updateTodo(edit.id, value);
     setEdit({
       id: null,
-      value: ''
+      value: '',
+
     });
   };
 
@@ -29,9 +30,11 @@ const Todo = ({ updateTodo, todos, completeTodo, removeTodo }) => {
       key={index}
     >
       <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-        {todo.text}
+        <input type="checkbox" checked={todo.isComplete} className="select-icon" />
+        <span className={todo.isComplete && "line-through"}>{todo.text}</span>
       </div>
       <div className='icons'>
+
         <RiCloseCircleLine
           onClick={() => removeTodo(todo.id)}
           className='delete-icon'
